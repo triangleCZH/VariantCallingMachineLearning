@@ -1,0 +1,15 @@
+0.994	init version	x=s:r->flatten(r)->con1d(s)->conv1d(s)->avgpool(s)->dense(s)->dropout(s)->dense(s)->concat(s,r)->dropout(x)->dense(x)->dropout(x)->softmax
+0.9944	dense from 16 to 30 features, seems not great improvement
+0.99976	seperate into two maxpool, the first one has size 2, second size 50, then lower the dropout rate to 0.3, this works, nice
+0.999799716	(from now on use validate_acc as the standard)add one more con1d-pool combination, adjust the dropout weight to 0.5 0.4 0.3(best epoch 185)
+0.9998519	low done the dropout back to 0.3 0.3 0.3(best epoch 254)
+0.9998523	use ten million sample, change dense feature to 50(best epoch 292)
+0.9998504	dropout rate to 0.4, impatience from 100 to 40, bad result
+0.999929664556	try remove the dropout, this gets a much better result as expected, but them should add it back and try(best epoch 335)
+0.999895249085	add the dropout back to 0.3, impatience to 30. cannot say it's good, cannot say it's bad.(bes tepoch 369)
+0.999322974339	dropout to 0.5, I would say it is not bad I think(best epoch 448)
+0.999922142049	remove dropout and get this(best epoch 492)
+0.998542138077	dropout to 0.5(best epoch 355)
+0.99992778393	best epoch 444
+0.999938691565  best epoch 500
+0.99992597102	best epoch 651 (20m sample)
